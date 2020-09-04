@@ -1,0 +1,20 @@
+schema: schema.gql
+documents: src/graphql/*.gql
+generates:
+  src/graphql/index.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-urql
+    config:
+      withHooks: true
+      withComponent: false
+      skipTypename: true
+      useTypeImports: true
+      scalars:
+        DateTime: string
+        EmailAddress: string
+        JSONObject: Record<string,any>
+hooks:
+  afterAllFileWrite:
+    - prettier --write src/graphql/*

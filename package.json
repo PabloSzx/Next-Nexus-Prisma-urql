@@ -1,0 +1,63 @@
+{
+  "name": "next-nexus-prisma-urql",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [
+    "next",
+    "nexus",
+    "prisma",
+    "urql",
+    "nextjs",
+    "react",
+    "graphql"
+  ],
+  "license": "MIT",
+  "author": "PabloSzx",
+  "main": "pages/index.tsx",
+  "scripts": {
+    "build": "next build",
+    "dev": "run-p next gql prisma-gen-watch",
+    "gql": "graphql-codegen --watch",
+    "migrate:save": "prisma migrate save --experimental",
+    "migrate:up": "prisma migrate up --experimental",
+    "next": "next",
+    "prisma-gen-watch": "prisma generate --watch",
+    "start": "next start",
+    "test": "jest"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
+  "dependencies": {
+    "@graphql-codegen/cli": "^1.17.8",
+    "@graphql-codegen/typescript": "^1.17.9",
+    "@graphql-codegen/typescript-operations": "^1.17.8",
+    "@graphql-codegen/typescript-urql": "^2.0.1",
+    "@nexus/schema": "^0.15.0",
+    "@types/node": "^14.6.4",
+    "@types/react": "^16.9.49",
+    "@types/react-dom": "^16.9.8",
+    "apollo-server-micro": "^2.17.0",
+    "cross-env": "^7.0.2",
+    "dotenv": "^8.2.0",
+    "graphql": "^15.3.0",
+    "graphql-scalars": "^1.2.6",
+    "husky": "^4.2.5",
+    "lodash": "^4.17.20",
+    "next": "^9.5.3",
+    "nexus-plugin-prisma": "^0.18.1",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.1.1",
+    "pretty-quick": "^3.0.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-use": "^15.3.3",
+    "typescript": "^4.0.2",
+    "urql": "^1.10.0"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.161"
+  }
+}
