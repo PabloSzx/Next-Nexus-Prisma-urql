@@ -6,6 +6,11 @@ type Post {
   id: Int!
 }
 
+input PostWhereUniqueInput {
+  id: Int
+}
+
 type Query {
   asd: String!
+  post(where: PostWhereUniqueInput!): Post
 }

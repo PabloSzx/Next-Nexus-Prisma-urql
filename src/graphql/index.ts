@@ -19,8 +19,17 @@ export type Post = {
   id: Scalars["Int"];
 };
 
+export type PostWhereUniqueInput = {
+  id?: Maybe<Scalars["Int"]>;
+};
+
 export type Query = {
   asd: Scalars["String"];
+  post?: Maybe<Post>;
+};
+
+export type QueryPostArgs = {
+  where: PostWhereUniqueInput;
 };
 
 export type AsdQueryVariables = Exact<{ [key: string]: never }>;

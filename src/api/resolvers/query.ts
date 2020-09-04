@@ -10,6 +10,7 @@ export const Post = objectType({
 
 export const Query = queryType({
   definition(t) {
+    t.crud.post();
     t.string("asd", {
       resolve() {
         return "hello world";

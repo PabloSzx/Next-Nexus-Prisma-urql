@@ -6,6 +6,7 @@ import { IS_DEVELOPMENT, PWD } from "@/constants";
 import { makeSchema } from "@nexus/schema";
 
 const prismaPlugin = nexusSchemaPrisma({
+  experimentalCRUD: true,
   outputs: {
     typegen: resolve(PWD, "./src/api/generated/prismaTypings.d.ts"),
   },
@@ -20,4 +21,5 @@ export const schema = makeSchema({
     typegen: resolve(PWD, "./src/api/generated/typings.d.ts"),
   },
   plugins: [prismaPlugin],
+  prettierConfig: {},
 });

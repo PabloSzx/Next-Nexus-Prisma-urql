@@ -5,8 +5,8 @@
 
 declare global {
   interface NexusGenCustomOutputProperties<TypeName extends string> {
+    crud: NexusPrisma<TypeName, "crud">;
     model: NexusPrisma<TypeName, "model">;
-    crud: any;
   }
 }
 
@@ -14,7 +14,12 @@ declare global {
   interface NexusGen extends NexusGenTypes {}
 }
 
-export interface NexusGenInputs {}
+export interface NexusGenInputs {
+  PostWhereUniqueInput: {
+    // input type
+    id?: number | null; // Int
+  };
+}
 
 export interface NexusGenEnums {}
 
@@ -36,6 +41,7 @@ export interface NexusGenRootTypes {
 }
 
 export interface NexusGenAllTypes extends NexusGenRootTypes {
+  PostWhereUniqueInput: NexusGenInputs["PostWhereUniqueInput"];
   String: NexusGenScalars["String"];
   Int: NexusGenScalars["Int"];
   Float: NexusGenScalars["Float"];
@@ -52,10 +58,18 @@ export interface NexusGenFieldTypes {
   Query: {
     // field return type
     asd: string; // String!
+    post: NexusGenRootTypes["Post"] | null; // Post
   };
 }
 
-export interface NexusGenArgTypes {}
+export interface NexusGenArgTypes {
+  Query: {
+    post: {
+      // args
+      where: NexusGenInputs["PostWhereUniqueInput"]; // PostWhereUniqueInput!
+    };
+  };
+}
 
 export interface NexusGenAbstractResolveReturnTypes {}
 
@@ -63,7 +77,7 @@ export interface NexusGenInheritedFields {}
 
 export type NexusGenObjectNames = "Post" | "Query";
 
-export type NexusGenInputNames = never;
+export type NexusGenInputNames = "PostWhereUniqueInput";
 
 export type NexusGenEnumNames = never;
 
